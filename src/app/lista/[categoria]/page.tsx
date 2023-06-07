@@ -1,11 +1,6 @@
 import { ProdutoLista } from '@/app/components/produto/ProdutoLista';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Produtos | {params.categoria}',
-  description: 'Produtos da Categoria '
-};
-
 type Props = {
   params: { categoria: string };
 };
