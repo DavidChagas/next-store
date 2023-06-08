@@ -1,7 +1,9 @@
 import { Metadata } from 'next';
 import { Produto } from '../../../../types/Produto';
-import Image from 'next/image';
-import BotaoComprar from '@/app/components/produto/BotaoComprar';
+import ProdutoDetalhes from '@/app/components/produto/ProdutoDetalhes';
+import CompreJunto from '@/app/components/produto/CompreJunto';
+import { Suspense } from 'react';
+import ProdutoDetalhesSkeleton from '@/app/components/produto/skeletons/ProdutoDetalhesSkeleton';
 
 type Props = {
   params: { id: string };
@@ -48,28 +50,15 @@ export default async function ProdutoPage({ params }: Props) {
   await buscarProduto(id);
 
   return (
-    <div className="container my-20 px-10">
-      <div className="grid grid-cols-2">
-        <Image
-          src={produto.image}
-          alt={produto.title}
-          width={500}
-          height={500}
-          className="h-[500px] object-contain"
-        />
-        <div className="flex flex-col justify-between rounded-md border p-5">
-          <div>
-            <div className="mb-5 text-xl">{produto.title}</div>
-            <div className="text-sm">{produto.description}</div>
-          </div>
-          <div>
-            <div className="mb-5 text-right text-lg">
-              Price ${produto.price}
-            </div>
-            <BotaoComprar></BotaoComprar>
-          </div>
-        </div>
-      </div>
+    <div className="container mx-auto my-20 px-10">
+      <Suspense fallback={<ProdutoDetalhesSkeleton />}>
+        {/* @ts-expect-error Async Server Component */}
+        <ProdutoDetalhes produto={produto}></ProdutoDetalhes>
+      </Suspense>
+      <Suspense>
+        {/* @ts-expect-error Async Server Component */}
+        <CompreJunto categoria={produto.category}></CompreJunto>
+      </Suspense>
     </div>
   );
 }
