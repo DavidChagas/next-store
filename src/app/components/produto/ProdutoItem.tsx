@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import moment from 'moment';
 import Link from 'next/link';
 import BotaoComprar from './BotaoComprar';
 import { Produto } from '../../../../types/Produto';
@@ -8,9 +9,15 @@ interface ProdutoItemProps {
 }
 
 export default function ProdutoItem({ produto }: ProdutoItemProps) {
+  let horaAtual: any = '';
+
+  horaAtual = moment(new Date()).format('hh:mm:ss a');
   return (
     <div>
       <div className="overflow-auto rounded-md border border-gray-200 bg-white">
+        <small>
+          <i>{horaAtual}</i>
+        </small>
         <Link
           href={`/produto/${produto.id}`}
           key={produto.id}
