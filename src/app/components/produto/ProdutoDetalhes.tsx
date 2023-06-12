@@ -20,6 +20,8 @@ export default async function ProdutoDetalhes({
         alt={produto.title}
         width={500}
         height={500}
+        placeholder="blur"
+        blurDataURL={produto.image}
         className="h-[500px] object-contain"
       />
       <div className="flex flex-col justify-between rounded-md border p-5">

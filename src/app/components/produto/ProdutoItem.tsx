@@ -22,6 +22,8 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
             alt={produto.title}
             width={200}
             height={200}
+            placeholder="blur"
+            blurDataURL={produto.image}
             className="h-[200px] object-contain"
           />
         </Link>
