@@ -12,20 +12,20 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   return (
     <div>
       <div className="overflow-auto rounded-md border border-gray-200 bg-white">
-        <Link
-          href={`/produto/${produto.id}`}
-          key={produto.id}
-          className="h-[200px] w-[100%]"
-        >
-          <Image
-            src={produto.image}
-            alt={produto.title}
-            width={200}
-            height={200}
-            placeholder="blur"
-            blurDataURL={produto.image}
-            className="h-[200px] object-contain"
-          />
+        <Link href={`/produto/${produto.id}`} key={produto.id}>
+          <div className="relative h-[150px] w-[150px] md:h-[200px] md:w-[200px]">
+            <Image
+              src={produto.image}
+              alt={produto.title}
+              fill
+              sizes="(max-width: 768px) 150px,
+              (max-width: 1200px) 200px,
+              200px"
+              placeholder="blur"
+              blurDataURL={produto.image}
+              className="object-contain"
+            />
+          </div>
         </Link>
         <div className="p-3">
           <h4 className="mt-2 h-[60px] text-[13px]">

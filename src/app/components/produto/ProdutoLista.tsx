@@ -1,6 +1,5 @@
 import { Produto } from '../../../../types/Produto';
 import ProdutoItem from './ProdutoItem';
-import moment from 'moment';
 
 export const revalidate = 10;
 
