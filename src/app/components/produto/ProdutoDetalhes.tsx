@@ -9,10 +9,6 @@ interface ProdutoDetalhesProps {
 export default async function ProdutoDetalhes({
   produto
 }: ProdutoDetalhesProps) {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 3000);
-  });
-
   return (
     <div className="grid grid-cols-2">
       <Image

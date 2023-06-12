@@ -5,10 +5,6 @@ interface CompreJuntoProps {
 }
 
 export default async function CompreJunto({ categoria }: CompreJuntoProps) {
-  await new Promise((resolve) => {
-    setTimeout(resolve, 5000);
-  });
-
   return (
     <div className="mt-10 overflow-hidden rounded-md border">
       <div className="bg-slate-100 p-5">Compre Junto</div>
