@@ -18,8 +18,10 @@ export default function ProdutosCategoriaPage({ params }: Props) {
       <h1 className="mb-20 mt-10 text-2xl">
         Produtos da Categoria {params.categoria}
       </h1>
-      {/* @ts-expect-error Async Server Component */}
-      <ProdutoLista categoria={params.categoria} />
+      <div className="grid grid-cols-5 gap-10">
+        {/* @ts-expect-error Async Server Component */}
+        <ProdutoLista categoria={params.categoria} />
+      </div>
     </div>
   );
 }

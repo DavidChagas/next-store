@@ -1,18 +1,12 @@
 import ProdutoItemSkeleton from './ProdutoItemSkeleton';
+interface ProdutoListaProps {
+  quantidade: number | null;
+}
 
-export function ProdutoListaSkeleton() {
-  return (
-    <div className="grid grid-cols-5 gap-10">
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-      <ProdutoItemSkeleton />
-    </div>
-  );
+export function ProdutoListaSkeleton({ quantidade }: ProdutoListaProps) {
+  const skeletons = Array.from({ length: quantidade || 0 }, (_, index) => (
+    <ProdutoItemSkeleton key={index} />
+  ));
+
+  return <>{skeletons}</>;
 }

@@ -4,6 +4,7 @@ import ProdutoDetalhes from '@/app/components/produto/ProdutoDetalhes';
 import CompreJunto from '@/app/components/produto/CompreJunto';
 import { Suspense } from 'react';
 import ProdutoDetalhesSkeleton from '@/app/components/produto/skeletons/ProdutoDetalhesSkeleton';
+import CompreJuntoSkeleton from '@/app/components/produto/skeletons/CompreJuntoSkeleton';
 
 type Props = {
   params: { id: string };
@@ -55,7 +56,7 @@ export default async function ProdutoPage({ params }: Props) {
         {/* @ts-expect-error Async Server Component */}
         <ProdutoDetalhes produto={produto}></ProdutoDetalhes>
       </Suspense>
-      <Suspense>
+      <Suspense fallback={<CompreJuntoSkeleton />}>
         {/* @ts-expect-error Async Server Component */}
         <CompreJunto categoria={produto.category}></CompreJunto>
       </Suspense>

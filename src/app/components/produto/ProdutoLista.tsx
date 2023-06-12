@@ -4,13 +4,16 @@ import moment from 'moment';
 
 export const revalidate = 10;
 
-interface CategoriaProps {
+interface ProdutoListaProps {
   categoria: string | null;
+  quantidade: number | null;
 }
 
-export async function ProdutoLista({ categoria }: CategoriaProps) {
+export async function ProdutoLista({
+  categoria,
+  quantidade
+}: ProdutoListaProps) {
   let produtos: Array<Produto> = [];
-  let horaAtual: any = '';
 
   const url = categoria != 'todos' ? '/category/' + categoria : '';
 
@@ -24,7 +27,9 @@ export async function ProdutoLista({ categoria }: CategoriaProps) {
     .then((res) => res.json())
     .then((data) => {
       produtos = data;
-      horaAtual = moment(new Date()).format('hh:mm:ss a');
+      if (typeof quantidade === 'number') {
+        produtos.length = quantidade;
+      }
     })
     .catch((error) => {
       console.error('Erro ao buscar produtos:', error);
@@ -32,14 +37,9 @@ export async function ProdutoLista({ categoria }: CategoriaProps) {
 
   return (
     <>
-      <div className="grid grid-cols-5 gap-10">
-        <small>
-          <i>{horaAtual}</i>
-        </small>
-        {produtos.map((produto) => (
-          <ProdutoItem key={produto.id} produto={produto} />
-        ))}
-      </div>
+      {produtos.map((produto) => (
+        <ProdutoItem key={produto.id} produto={produto} />
+      ))}
     </>
   );
 }

@@ -5,7 +5,9 @@ export default function Loading() {
     <div className="animate-pulse px-10 duration-75 md:container md:mx-auto">
       <div className="mb-20 mt-10 h-5 w-80 bg-slate-200 text-2xl"></div>
 
-      <ProdutoListaSkeleton />
+      <div className="grid grid-cols-5 gap-10">
+        <ProdutoListaSkeleton quantidade={10} />
+      </div>
     </div>
   );
 }
