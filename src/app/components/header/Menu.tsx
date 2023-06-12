@@ -1,4 +1,3 @@
-import moment from 'moment';
 import Link from 'next/link';
 
 export async function Menu() {

@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import moment from 'moment';
 import Link from 'next/link';
 import BotaoComprar from './BotaoComprar';
 import { Produto } from '../../../../types/Produto';
