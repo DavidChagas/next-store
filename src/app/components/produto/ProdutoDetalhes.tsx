@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Produto } from '../../../../types/Produto';
+import { Produto } from '../../../types/Produto';
 import BotaoComprar from './BotaoComprar';
 
 interface ProdutoDetalhesProps {
@@ -9,6 +9,9 @@ interface ProdutoDetalhesProps {
 export default async function ProdutoDetalhes({
   produto
 }: ProdutoDetalhesProps) {
+  await new Promise((resolve) => {
+    setTimeout(resolve, 2000);
+  });
   return (
     <div className="grid grid-cols-2">
       <Image

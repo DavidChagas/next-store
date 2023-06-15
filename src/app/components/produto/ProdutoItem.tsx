@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import BotaoComprar from './BotaoComprar';
-import { Produto } from '../../../../types/Produto';
+import { Produto } from '../../../types/Produto';
 
 interface ProdutoItemProps {
   produto: Produto;
@@ -11,7 +11,7 @@ export default function ProdutoItem({ produto }: ProdutoItemProps) {
   return (
     <div>
       <div className="overflow-auto rounded-md border border-gray-200 bg-white">
-        <Link href={`/produto/${produto.id}`} key={produto.id}>
+        <Link href={`/produto/${produto.id}`} key={produto.id} prefetch={false}>
           <div className="relative h-[150px] w-[150px] md:h-[200px] md:w-[200px]">
             <Image
               src={produto.image}

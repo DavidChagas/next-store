@@ -6,7 +6,6 @@ export default function Header() {
       <div className="container mx-auto flex justify-between px-10 py-5">
         <div>Logo</div>
         <div>
-          {/* @ts-expect-error Async Server Component */}
           <Menu />
         </div>
         <div>Cesta</div>
