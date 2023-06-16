@@ -1,7 +1,7 @@
 import { sProduto } from '@/services/sProduto';
 import { Produto } from '@/types/Produto';
 
-export class cProdutoListar {
+export class cProdutoLista {
   produtos: Array<Produto> = [];
   sP: sProduto = new sProduto();
 

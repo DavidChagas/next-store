@@ -1,5 +1,5 @@
 import ProdutoItem from '@/app/components/produto/ProdutoItem';
-import { cProdutoListar } from '@/controllers/paginas/cProdutoListar';
+import { cProdutoLista } from '@/controllers/paginas/cProdutoLista';
 import { Metadata } from 'next';
 
 type Props = {
@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProdutosCategoriaPage({ params }: Props) {
-  const ctrl = new cProdutoListar();
+  const ctrl = new cProdutoLista();
   await ctrl.init(params.categoria);
 
   return (

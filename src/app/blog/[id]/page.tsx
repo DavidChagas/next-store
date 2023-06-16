@@ -1,18 +1,18 @@
-async function getPost(id: any) {
-  const res = await fetch(`http://localhost:3001/posts/${id}`, {
-    cache: 'no-store'
-  });
-  return res.json();
-}
+import { cBlogId } from '@/controllers/paginas/cBlogId';
 
-export default async function Page({ params }: any) {
-  const { id } = params;
-  const post = await getPost(id);
+type Props = {
+  params: { id: string };
+};
+
+export default async function Page({ params }: Props) {
+  const ctrl = new cBlogId();
+  await ctrl.init(params.id);
+
   return (
     <div>
       <hr></hr>
-      <h1>{post?.title}</h1>
-      <div>{post?.description}</div>
+      <h1>{ctrl.post?.title}</h1>
+      <div>{ctrl.post?.description}</div>
     </div>
   );
 }
