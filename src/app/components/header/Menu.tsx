@@ -9,6 +9,7 @@ export async function Menu() {
     <div className="">
       <div className=" flex justify-center gap-10">
         <Link href={'/'}>Home</Link>
+        <Link href={'/blog'}>Blog</Link>
         <Link href={'/lista/todos'}>Todos os Produtos</Link>
         {ctrl.categorias.map((item) => (
           <Link href={`/lista/${item}`} key={item}>

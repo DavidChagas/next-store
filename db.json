@@ -1,0 +1,22 @@
+{
+    "posts": [
+        {
+            "id": "1",
+            "title": "Post Teste 1",
+            "price": 100,
+            "description": "Descrição Produto Teste 1."
+        },
+        {
+            "id": "2",
+            "title": "Post Teste 2",
+            "price": 200,
+            "description": "Descrição Post Teste 2."
+        },
+        {
+            "id": "3",
+            "title": "Post Teste 5",
+            "price": 200,
+            "description": "Descrição Post Teste 5."
+        }
+    ]
+}
