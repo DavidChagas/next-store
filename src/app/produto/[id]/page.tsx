@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import { Produto } from '../../../types/Produto';
 import ProdutoDetalhes from '@/app/components/produto/ProdutoDetalhes';
 import CompreJunto from '@/app/components/produto/CompreJunto';
 import { Suspense } from 'react';

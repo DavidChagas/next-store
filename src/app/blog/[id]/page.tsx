@@ -8,13 +8,15 @@ export default async function Page({ params }: Props) {
   const ctrl = new cBlogId();
   await ctrl.init(params.id);
 
-  return (
-    <div>
-      <hr></hr>
-      <h1>{ctrl.post?.title}</h1>
-      <div>{ctrl.post?.description}</div>
-    </div>
-  );
+  if (ctrl.post != null) {
+    return (
+      <div>
+        <h1 className="mb-10 text-lg">{ctrl.post.title}</h1>
+        <div className="mb-5 text-sm">{ctrl.post.description}</div>
+        <div dangerouslySetInnerHTML={{ __html: ctrl.post.text }} />
+      </div>
+    );
+  }
 }
 
 // export async function generateStaticParams() {
