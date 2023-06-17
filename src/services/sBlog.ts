@@ -17,7 +17,7 @@ export class sBlog {
     try {
       // por não ser uma pagina dinamica ([id] por exemplo) por padrão o fetch é 'force-cache', fazendo assim a chamada a api apenas no momento do build
       const res = await fetch('http://localhost:3001/posts', {
-        cache: 'no-store'
+        next: { revalidate: 60 }
       });
       return res.json();
     } catch (error) {
